@@ -1,0 +1,507 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:extensions="http://xamarin.com/schemas/2020/toolkit"
+             x:Class="BoxingProto.QuickStartPage2"
+             x:Name="quickstartpage2"
+             NavigationPage.HasBackButton="True"
+             >
+
+    <Shell.TitleView>
+
+
+        <Label Text="QR Code" HorizontalTextAlignment="End" Margin="0,0,10,0" Padding="0" VerticalTextAlignment="Center" TextColor="White" FontSize="20"/>
+    </Shell.TitleView>
+    <ScrollView BackgroundColor="Red" x:Name="scrollview" IsEnabled="False"  BindingContext="{x:Reference quickstartpage2}">
+
+        <Grid RowSpacing="10" BackgroundColor="White">
+
+            <Grid.RowDefinitions>
+
+                <RowDefinition Height="80" />
+                <RowDefinition Height="125"  />
+                <RowDefinition Height="3" />
+                <RowDefinition Height="125" />
+                <RowDefinition Height="3" />
+                <RowDefinition Height="125" />
+                <RowDefinition Height="3" />
+                <RowDefinition Height="60" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="60" />
+                <!--Row 9-->
+                <RowDefinition Height="3" />
+                <RowDefinition Height="125"  />
+                <RowDefinition Height="3" />
+                <RowDefinition Height="125"  />
+                <RowDefinition Height="3" />
+                <RowDefinition Height="200"  />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width=".2*"/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="2*" />
+                <ColumnDefinition Width="2*"/>
+
+                <ColumnDefinition Width=".2*"/>
+            </Grid.ColumnDefinitions>
+
+
+
+            <Button Grid.Column="1" Grid.Row="8" CornerRadius="10" Text="GENERATE WORKOUT" BackgroundColor="#C2C2C2" TextColor="Black" 
+                    Margin="70,0,70,50" 
+                    Grid.ColumnSpan="3" 
+                    x:Name="genWorkoutBut1"
+                    IsVisible="True"
+                    Clicked="runWorkout_clicked">
+
+
+
+            </Button>
+
+            <Button Grid.Column="1" Grid.Row="18" CornerRadius="10" Text="GENERATE WORKOUT" BackgroundColor="#C2C2C2" TextColor="Black" 
+                    Margin="70,0,70,60" 
+                    Grid.ColumnSpan="3"
+                    x:Name="genWorkoutBut2"
+                    IsVisible="False"
+                    Clicked="runWorkout_clicked">
+
+
+
+            </Button>
+
+
+
+            <StackLayout Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" VerticalOptions="Center" HorizontalOptions="Center" Orientation="Horizontal" >
+
+                <Label  Text="WORKOUT DURATION:" FontSize="18" HorizontalOptions="Center" x:Name="workoutdurationlabel"  />
+                <Label  Text="{Binding WorkoutDuration}" FontSize="18" HorizontalOptions="Center"  />
+
+            </StackLayout>
+
+            <Label BackgroundColor="Black" VerticalOptions="End" HeightRequest="3" Grid.Column="1" Grid.ColumnSpan="3"/>
+
+
+            <Frame Grid.Column="1" Grid.Row="1" Padding="0,35,40,10" HasShadow="False">
+
+                <Image x:Name="boxingringimage"/>
+
+            </Frame>
+            <Label Text="ROUNDS" Grid.Column="1" Grid.Row="1" VerticalOptions="Start" HorizontalOptions="Start" FontSize="24" Padding="0,0,0,0" Grid.ColumnSpan="2"/>
+
+            <Frame BackgroundColor="#C2C2C2" Grid.Row="1" Grid.Column="3"  CornerRadius="10" Padding="0,0,0,0" HeightRequest="80" VerticalOptions="End" Margin="0,0,0,10">
+
+                <Button Text="{Binding NumberOfRounds}" FontSize="30" TextColor="Black" Clicked="roundButtonClicked" x:Name="roundsbutton" BackgroundColor="#C2C2C2">
+
+                </Button>
+
+            </Frame>
+
+
+
+
+            <Image x:Name="timerimage" Scale="1.1" Grid.Column="1" Grid.Row="3" Margin="0,35,40,10"/>
+
+
+
+            <Label Text="ROUND LENGTH" Grid.Column="1" Grid.Row="3" VerticalOptions="Start" HorizontalOptions="Start" FontSize="24" Padding="0,0,0,0" Grid.ColumnSpan="2"/>
+
+
+            <Image x:Name="batteryimage" Scale="1.1" Grid.Column="1" Grid.Row="5" Margin="0,35,40,10" />
+
+
+
+            <Label Text="REST" Grid.Column="1" Grid.Row="5" VerticalOptions="Start" HorizontalOptions="Start" FontSize="24" Padding="0,0,0,0" Grid.ColumnSpan="2"/>
+
+
+
+            <Label Text="STRIKE CALLOUTS" Grid.Column="1" Grid.Row="7" VerticalOptions="Center" HorizontalOptions="Start" FontSize="24" 
+                   Padding="0,0,0,0" Grid.ColumnSpan="2" x:Name="strikecalloutlabel"/>
+            <Switch x:Name="toggle" IsToggled="{Binding StrikeCallout}" Grid.Column="3" Grid.Row="7"  
+                    HorizontalOptions="End" ScaleX="1.2" Toggled="Switch_Toggled" OnColor="Red"/>
+
+
+
+
+
+
+
+
+            <StackLayout Orientation="Horizontal" Grid.Row="3" Grid.Column="3" >
+
+                <StackLayout Orientation="Vertical"  Padding= "0,0,0,0"  HorizontalOptions="Start"  Margin="0,0,0,0" Spacing="2" >
+
+                    <Label Text="MIN" FontSize="20" HorizontalOptions="Start" Padding="0,0,0,0" />
+
+                    <Button WidthRequest="55" HeightRequest="80" CornerRadius="10" BackgroundColor="#C2C2C2" x:Name="roundlengthMinButton" FontSize="24" 
+                            Clicked="roundlengthMinButton_Clicked" TextColor="Black"
+                            Text="{Binding RoundLengthMin}"/>
+
+                </StackLayout>
+
+                <StackLayout Orientation="Vertical"  Padding= "0,0,0,0"  HorizontalOptions="Start"  Margin="0,0,0,0" Spacing="2" >
+
+                    <Label Text="SEC" FontSize="20" HorizontalOptions="Start" Padding="0,0,0,0" />
+
+                    <Button WidthRequest="55" HeightRequest="80" CornerRadius="10" BackgroundColor="#C2C2C2" 
+                            x:Name="roundlengthSecButton" FontSize="24" Clicked="roundlengthSecButton_Clicked" TextColor="Black"
+                            Text="{Binding RoundLengthSec}"/>
+
+                </StackLayout>
+
+
+
+            </StackLayout>
+
+
+
+
+            <StackLayout Orientation="Horizontal" Grid.Row="5" Grid.Column="3">
+
+                <StackLayout Orientation="Vertical"  Padding= "0,0,0,0"  HorizontalOptions="Start"  Margin="0,0,0,0" Spacing="2" >
+
+                    <Label Text="MIN" FontSize="20" HorizontalOptions="Start" Padding="0,0,0,0" />
+
+                    <Button WidthRequest="55" HeightRequest="80" CornerRadius="10" BackgroundColor="#C2C2C2" x:Name="restlengthMinButton" FontSize="24" 
+                            Clicked="restlengthMinButton_Clicked" TextColor="Black"
+                            Text="{Binding RestLengthMin}"/>
+
+                </StackLayout>
+
+                <StackLayout Orientation="Vertical"  Padding= "0,0,0,0"  HorizontalOptions="Start"  Margin="0,0,0,0" Spacing="2" >
+
+                    <Label Text="SEC" FontSize="20" HorizontalOptions="Start" Padding="0,0,0,0" />
+
+                    <Button WidthRequest="55" HeightRequest="80" CornerRadius="10" BackgroundColor="#C2C2C2" x:Name="restlengthSecButton" 
+                            FontSize="24" Clicked="restlengthSecButton_Clicked" TextColor="Black"
+                            Text="{Binding RestLengthSec}"/>
+
+                </StackLayout>
+
+
+
+            </StackLayout>
+
+
+
+
+            <Label Text="LEVEL:" Grid.Column="1" Grid.Row="9" VerticalOptions="Center" FontSize="24" Padding="25,0,0,0" Grid.ColumnSpan="2" x:Name="levellabel" 
+                   IsVisible="{Binding StrikeCalloutsVis}" />
+
+
+
+            <Button  Grid.ColumnSpan="2" Grid.Row="9" Grid.Column="2" CornerRadius="20" BackgroundColor="#C2C2C2" 
+                     Clicked="levelbutton_clicked" x:Name="levelbutton" Text="Beginner" TextColor="Black"
+                     FontSize="20" IsVisible="{Binding StrikeCalloutsVis}" />
+
+
+
+
+            <StackLayout Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="11"  Padding="25,20,0,0"  Spacing="0" x:Name ="combointervallabelstack" VerticalOptions="End"
+                         IsVisible="{Binding StrikeCalloutsVis}" >
+                <Label Text="COMBO    " HorizontalOptions="Center" FontSize="24" />
+                <Label Text="INTERVAL" HorizontalOptions="Center" FontSize="24" />
+
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal" Grid.Row="11" Grid.Column="3" x:Name="combointervalstack" IsVisible="{Binding StrikeCalloutsVis}" VerticalOptions="End" HorizontalOptions="End"
+                         >
+
+
+                <StackLayout Orientation="Vertical"  Padding= "0,0,0,0"  HorizontalOptions="Start"  Margin="0,0,0,0" Spacing="2" >
+
+                    <Label Text="SEC" FontSize="20" HorizontalOptions="Center" Padding="0,0,0,0" />
+
+                    <Button WidthRequest="55" HeightRequest="80" CornerRadius="10" BackgroundColor="#C2C2C2" 
+                            FontSize="24"  TextColor="Black" Clicked="intervalbutton_Clicked"
+                            Text="{Binding ComboInt}"/>
+
+                </StackLayout>
+
+
+
+            </StackLayout>
+
+
+            <StackLayout Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="13"  Padding="75,20,0,0"  Spacing="0"  x:Name="combolengthlabelstack" VerticalOptions="End" 
+                         IsVisible="{Binding StrikeCalloutsVis}">
+                <Label Text="COMBO" HorizontalOptions="Start" FontSize="24" />
+                <Label Text="LENGTH" HorizontalOptions="Start" FontSize="24" />
+
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal" Grid.Row="13" Grid.Column="3" x:Name="combolengthstack" IsVisible="{Binding StrikeCalloutsVis}"  Padding="0,0,0,0" VerticalOptions="End"
+                         >
+
+                <StackLayout Orientation="Vertical"  Padding= "0,0,0,0"  HorizontalOptions="Start"  Margin="0,0,0,0" Spacing="2" >
+
+                    <Label Text="MIN" FontSize="20" HorizontalOptions="Start" Padding="0,0,0,0" />
+
+                    <Button WidthRequest="55" HeightRequest="80" CornerRadius="10" BackgroundColor="#C2C2C2"  FontSize="24" 
+                            TextColor="Black" Clicked="ComboLengthMinButton_clicked"
+                            Text="{Binding ComboLengthMin}"/>
+
+                </StackLayout>
+
+                <StackLayout Orientation="Vertical"  Padding= "0,0,0,0"  HorizontalOptions="Start"  Margin="0,0,0,0" Spacing="2" >
+
+                    <Label Text="MAX" FontSize="20" HorizontalOptions="Start" Padding="0,0,0,0" />
+
+                    <Button WidthRequest="55" HeightRequest="80" CornerRadius="10" BackgroundColor="#C2C2C2" 
+                            FontSize="24"  TextColor="Black" Clicked="ComboLengthMaxButton_clicked"
+                            Text="{Binding ComboLengthMax}"/>
+
+                </StackLayout>
+
+
+
+            </StackLayout>
+
+
+            <Button Grid.Row="15" Grid.Column="1" VerticalOptions="Center" Text="+ ADVANCED SETTINGS"
+                    x:Name="AdvancedSettingsBut" Clicked="AdvancedSettingsBut_Clicked" BackgroundColor="#C2C2C2" TextColor="Black"
+                    CornerRadius="20" Grid.ColumnSpan="3" Margin="30,0,30,80" FontSize="20">
+
+
+            </Button>
+
+
+            <StackLayout Orientation="Vertical" Padding="100,-90,0,0" Grid.Row="16" Grid.Column="1" Grid.ColumnSpan="3" x:Name="comboSettingsLayout"
+                         IsVisible="{Binding AdvSettingsVis}">
+
+                <Label Text="COMBO FREQ." FontSize="24" Padding="-50,0,0,20" x:Name="combofreqlabel"/>
+
+                <StackLayout Orientation="Horizontal" Padding="0,0,0,0">
+                    <Label Text="1 STR COMBO" HorizontalOptions="Start" FontSize="20" x:Name="comboLabel1"/>
+                    <Label Text="0" HorizontalTextAlignment="End" HorizontalOptions="FillAndExpand" FontSize="20" x:Name="combolength1Label"/>
+                    <Label Text="%" FontSize="20" Padding="-5,0,0,0"  x:Name="comboPercentLabel1"/>
+
+                </StackLayout>
+
+                <Slider  HorizontalOptions="FillAndExpand" ThumbColor="Black" extensions:CornerRadiusEffect.CornerRadius="20"
+                         BackgroundColor="LightGray" HeightRequest="30" x:Name="comboSlider1" 
+                         Value=".85" Margin="0,0,0,30" ValueChanged="comboSlider1_ValueChanged" DragStarted="comboSlider1_DragStarted"/>
+
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="2 STR COMBO" HorizontalOptions="Start" FontSize="20" x:Name="comboLabel2"/>
+                    <Label Text="0" HorizontalTextAlignment="End" HorizontalOptions="FillAndExpand" FontSize="20" x:Name="combolength2Label"/>
+                    <Label Text="%" FontSize="20" Padding="-5,0,0,0" x:Name="comboPercentLabel2" />
+
+                </StackLayout>
+
+                <Slider  HorizontalOptions="FillAndExpand" ThumbColor="Black" extensions:CornerRadiusEffect.CornerRadius="20" 
+                         BackgroundColor="LightGray" HeightRequest="30" x:Name="comboSlider2" 
+                         Value=".85" Margin="0,0,0,30" ValueChanged="comboSlider2_ValueChanged" DragStarted="comboSlider2_DragStarted" >
+                </Slider>
+
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="3 STR COMBO" HorizontalOptions="Start" FontSize="20" x:Name="comboLabel3"/>
+                    <Label Text="0" HorizontalTextAlignment="End" HorizontalOptions="FillAndExpand" FontSize="20" x:Name="combolength3Label"/>
+                    <Label Text="%" FontSize="20" Padding="-5,0,0,0" x:Name="comboPercentLabel3"/>
+
+                </StackLayout>
+
+                <Slider  HorizontalOptions="FillAndExpand" ThumbColor="Black" extensions:CornerRadiusEffect.CornerRadius="20" 
+                         BackgroundColor="LightGray" HeightRequest="30" x:Name="comboSlider3" 
+                         Value=".85" Margin="0,0,0,30" ValueChanged="comboSlider3_ValueChanged" DragStarted="comboSlider3_DragStarted"/>
+
+
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="4 STR COMBO" HorizontalOptions="Start" FontSize="20" x:Name="comboLabel4"/>
+                    <Label Text="0" HorizontalTextAlignment="End" HorizontalOptions="FillAndExpand" FontSize="20" x:Name="combolength4Label"/>
+                    <Label Text="%" FontSize="20" Padding="-5,0,0,0" x:Name="comboPercentLabel4"/>
+
+                </StackLayout>
+
+                <Slider  HorizontalOptions="FillAndExpand" ThumbColor="Black" extensions:CornerRadiusEffect.CornerRadius="20" 
+                         BackgroundColor="LightGray" HeightRequest="30" x:Name="comboSlider4" 
+                         Value=".85" ValueChanged="comboSlider4_ValueChanged" DragStarted="comboSlider4_DragStarted" />
+
+
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="5 STR COMBO" HorizontalOptions="Start" FontSize="20" x:Name="comboLabel5"/>
+                    <Label Text="0" HorizontalTextAlignment="End" HorizontalOptions="FillAndExpand" FontSize="20" x:Name="combolength5Label"/>
+                    <Label Text="%" FontSize="20" Padding="-5,0,0,0" x:Name="comboPercentLabel5"/>
+
+                </StackLayout>
+
+                <Slider  HorizontalOptions="FillAndExpand" ThumbColor="Black" extensions:CornerRadiusEffect.CornerRadius="20" 
+                         BackgroundColor="LightGray" HeightRequest="30" x:Name="comboSlider5" 
+                         Value=".85" ValueChanged="comboSlider5_ValueChanged" DragStarted="comboSlider5_DragStarted"/>
+
+
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="6 STR COMBO" HorizontalOptions="Start" FontSize="20" x:Name="comboLabel6"/>
+                    <Label Text="0" HorizontalTextAlignment="End" HorizontalOptions="FillAndExpand" FontSize="20" x:Name="combolength6Label"/>
+                    <Label Text="%" FontSize="20" Padding="-5,0,0,0" x:Name="comboPercentLabel6"/>
+
+                </StackLayout>
+
+                <Slider  HorizontalOptions="FillAndExpand" ThumbColor="Black" extensions:CornerRadiusEffect.CornerRadius="20" 
+                         BackgroundColor="LightGray" HeightRequest="30" x:Name="comboSlider6" 
+                         Value=".85" ValueChanged="comboSlider6_ValueChanged" DragStarted="comboSlider6_DragStarted"/>
+
+
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="7 STR COMBO" HorizontalOptions="Start" FontSize="20" x:Name="comboLabel7"/>
+                    <Label Text="0" HorizontalTextAlignment="End" HorizontalOptions="FillAndExpand" FontSize="20" x:Name="combolength7Label"/>
+                    <Label Text="%" FontSize="20" Padding="-5,0,0,0" x:Name="comboPercentLabel7"/>
+
+                </StackLayout>
+
+                <Slider  HorizontalOptions="FillAndExpand" ThumbColor="Black" extensions:CornerRadiusEffect.CornerRadius="20" 
+                         BackgroundColor="LightGray" HeightRequest="30" x:Name="comboSlider7" 
+                         Value=".85" ValueChanged="comboSlider7_ValueChanged" DragStarted="comboSlider7_DragStarted"/>
+
+
+
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="8 STR COMBO" HorizontalOptions="Start" FontSize="20" x:Name="comboLabel8"/>
+                    <Label Text="0" HorizontalTextAlignment="End" HorizontalOptions="FillAndExpand" FontSize="20" x:Name="combolength8Label"/>
+                    <Label Text="%" FontSize="20" Padding="-5,0,0,0" x:Name="comboPercentLabel8"/>
+
+                </StackLayout>
+
+                <Slider  HorizontalOptions="FillAndExpand" ThumbColor="Black" extensions:CornerRadiusEffect.CornerRadius="20" 
+                         BackgroundColor="LightGray" HeightRequest="30" x:Name="comboSlider8" 
+                         Value=".85" ValueChanged="comboSlider8_ValueChanged" DragStarted="comboSlider8_DragStarted"/>
+
+
+
+
+                <StackLayout Orientation="Horizontal" >
+                    <Label Text="9 STR COMBO" HorizontalOptions="Start" FontSize="20" x:Name="comboLabel9"/>
+                    <Label Text="0" HorizontalTextAlignment="End" HorizontalOptions="FillAndExpand" FontSize="20" x:Name="combolength9Label"/>
+                    <Label Text="%" FontSize="20" Padding="-5,0,0,0" x:Name="comboPercentLabel9"/>
+
+                </StackLayout>
+
+                <Slider  HorizontalOptions="FillAndExpand" ThumbColor="Black" extensions:CornerRadiusEffect.CornerRadius="20" 
+                         BackgroundColor="LightGray" HeightRequest="30" x:Name="comboSlider9" 
+                         Value=".85" ValueChanged="comboSlider9_ValueChanged" DragStarted="comboSlider9_DragStarted" />
+
+
+
+
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="10 STR COMBO" HorizontalOptions="Start" FontSize="20" x:Name="comboLabel10"/>
+                    <Label Text="0" HorizontalTextAlignment="End" HorizontalOptions="FillAndExpand" FontSize="20" x:Name="combolength10Label"/>
+                    <Label Text="%" FontSize="20" Padding="-5,0,0,0" x:Name="comboPercentLabel10"/>
+
+                </StackLayout>
+
+                <Slider  HorizontalOptions="FillAndExpand" ThumbColor="Black" extensions:CornerRadiusEffect.CornerRadius="20" 
+                         BackgroundColor="LightGray" HeightRequest="30" x:Name="comboSlider10" 
+                         Value=".85" ValueChanged="comboSlider10_ValueChanged" DragStarted="comboSlider10_DragStarted"/>
+
+
+
+            </StackLayout>
+
+
+            <StackLayout Orientation="Vertical"  Padding="100,-90,0,0"  Grid.Row="17" Grid.Column="1" Grid.ColumnSpan="3"
+                         IsVisible="{Binding AdvSettingsVis}" Margin="0,60,0,0">
+
+                <Label Text="STRIKE TYPE" FontSize="24" Padding="-50,0,0,20"/>
+
+
+                <StackLayout Orientation="Horizontal" >
+                    <Label Text="1 - JAB" HorizontalOptions="Start" FontSize="20"/>
+                    <Label Text="0" HorizontalTextAlignment="End" HorizontalOptions="FillAndExpand" FontSize="20" x:Name="slider1label"/>
+                    <Label Text="%" FontSize="20" Padding="-5,0,0,0"/>
+
+                </StackLayout>
+
+                <Slider  HorizontalOptions="FillAndExpand" ThumbColor="Black" extensions:CornerRadiusEffect.CornerRadius="20" 
+                         BackgroundColor="LightGray" HeightRequest="30" x:Name="slider1" ValueChanged="slider1_ValueChanged" DragStarted="slider1_DragStarted"
+                         Value=".85"/>
+
+
+
+                <StackLayout Orientation="Horizontal" Padding="0,35,0,0" >
+                    <Label Text="2 - CROSS/STRAIGHT" HorizontalOptions="Start" FontSize="20"/>
+                    <Label Text=".15" HorizontalTextAlignment="End" HorizontalOptions="FillAndExpand" FontSize="20" x:Name="slider2label" />
+                    <Label Text="%" FontSize="20" Padding="-5,0,0,0"/>
+                </StackLayout>
+
+                <Slider  HorizontalOptions="FillAndExpand" ThumbColor="Black" extensions:CornerRadiusEffect.CornerRadius="20" 
+                         BackgroundColor="LightGray" HeightRequest="30" x:Name="slider2" ValueChanged="slider2_ValueChanged" DragStarted="slider2_DragStarted"
+                         Value=".15"/>
+
+
+
+                <StackLayout Orientation="Horizontal" Padding="0,35,0,0" >
+                    <Label Text="3 - LEAD HOOK" HorizontalOptions="Start" FontSize="20"/>
+                    <Label Text="0" HorizontalTextAlignment="End" HorizontalOptions="FillAndExpand" FontSize="20" x:Name="slider3label" />
+                    <Label Text="%" FontSize="20" Padding="-5,0,0,0"/>
+                </StackLayout>
+
+                <Slider  HorizontalOptions="FillAndExpand" ThumbColor="Black" extensions:CornerRadiusEffect.CornerRadius="20" 
+                         BackgroundColor="LightGray" HeightRequest="30" x:Name="slider3" ValueChanged="slider3_ValueChanged" DragStarted="slider3_DragStarted" />
+
+                <StackLayout Orientation="Horizontal" Padding="0,35,0,0" >
+                    <Label Text="4 - REAR HOOK" HorizontalOptions="Start" FontSize="20"/>
+                    <Label Text="0" HorizontalTextAlignment="End" HorizontalOptions="FillAndExpand" FontSize="20" x:Name="slider4label" />
+                    <Label Text="%" FontSize="20" Padding="-5,0,0,0"/>
+                </StackLayout>
+
+                <Slider  HorizontalOptions="FillAndExpand" ThumbColor="Black" extensions:CornerRadiusEffect.CornerRadius="20" 
+                         BackgroundColor="LightGray" HeightRequest="30" x:Name="slider4" ValueChanged="slider4_ValueChanged" DragStarted="slider4_DragStarted"/>
+
+                <StackLayout Orientation="Horizontal" Padding="0,35,0,0" >
+                    <Label Text="5 - LEAD UPPERCUT" HorizontalOptions="Start" FontSize="20"/>
+                    <Label Text="0" HorizontalTextAlignment="End" HorizontalOptions="FillAndExpand" FontSize="20" x:Name="slider5label" />
+                    <Label Text="%" FontSize="20" Padding="-5,0,0,0"/>
+                </StackLayout>
+
+                <Slider  HorizontalOptions="FillAndExpand" ThumbColor="Black" extensions:CornerRadiusEffect.CornerRadius="20" 
+                         BackgroundColor="LightGray" HeightRequest="30" x:Name="slider5" ValueChanged="slider5_ValueChanged" DragStarted="slider5_DragStarted"/>
+
+
+                <StackLayout Orientation="Horizontal" Padding="0,35,0,0" >
+                    <Label Text="6 - REAR UPPERCUT" HorizontalOptions="Start" FontSize="20"/>
+                    <Label Text="0" HorizontalTextAlignment="End" HorizontalOptions="FillAndExpand" FontSize="20" x:Name="slider6label"/>
+                    <Label Text="%" FontSize="20" Padding="-5,0,0,0"/>
+                </StackLayout>
+
+                <Slider  HorizontalOptions="FillAndExpand" ThumbColor="Black" extensions:CornerRadiusEffect.CornerRadius="20" 
+                         BackgroundColor="LightGray" HeightRequest="30" x:Name="slider6" ValueChanged="slider6_ValueChanged" DragStarted="slider6_DragStarted"/>
+
+
+                <StackLayout Orientation="Horizontal" Padding="0,35,0,0" >
+                    <Label Text="7 - LEAD SHOVEL HOOK" HorizontalOptions="Start" FontSize="20"/>
+                    <Label Text="0" HorizontalTextAlignment="End" HorizontalOptions="FillAndExpand" FontSize="20" x:Name="slider7label" />
+                    <Label Text="%" FontSize="20" Padding="-5,0,0,0"/>
+                </StackLayout>
+
+                <Slider  HorizontalOptions="FillAndExpand" ThumbColor="Black" extensions:CornerRadiusEffect.CornerRadius="20" 
+                         BackgroundColor="LightGray" HeightRequest="30" x:Name="slider7" ValueChanged="slider7_ValueChanged"  DragStarted="slider7_DragStarted"/>
+
+
+
+                <StackLayout Orientation="Horizontal" Padding="0,35,0,0" >
+                    <Label Text="8 - REAR SHOVEL HOOK" HorizontalOptions="Start" FontSize="20"/>
+                    <Label Text="0" HorizontalTextAlignment="End" HorizontalOptions="FillAndExpand" FontSize="20" x:Name="slider8label" />
+                    <Label Text="%" FontSize="20" Padding="-5,0,0,0"/>
+                </StackLayout>
+
+                <Slider  HorizontalOptions="FillAndExpand" ThumbColor="Black" extensions:CornerRadiusEffect.CornerRadius="20" 
+                         BackgroundColor="LightGray" HeightRequest="30" x:Name="slider8" ValueChanged="slider8_ValueChanged" DragStarted="slider8_DragStarted"/>
+
+
+
+            </StackLayout>
+
+
+            <Label Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3" BackgroundColor="Black" />
+            <Label Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="3" BackgroundColor="Black" />
+            <Label Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="3" BackgroundColor="Black" />
+
+        </Grid>
+
+    </ScrollView>
+    
+    
+</ContentPage>

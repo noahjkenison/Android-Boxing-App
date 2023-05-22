@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BoxingProto.WorkoutEditPage">
+
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height=".3*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="1.2*" />
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+
+        </Grid.ColumnDefinitions>
+
+        <Label BackgroundColor="LightBlue" x:Name="workoutlabel" Grid.ColumnSpan="3" FontSize="24" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Grid.Row="0" Grid.Column="0"/>
+
+
+        <ScrollView Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Grid.RowSpan="3">
+
+            <ListView  RowHeight="100" x:Name="editpageview" ItemTapped="editpageview_ItemTapped" >
+                <ListView.ItemTemplate >
+
+
+                    <DataTemplate>
+
+                        <ViewCell x:Name="myViewCell" >
+
+                            <StackLayout Orientation="Vertical" BackgroundColor="White" x:Name="myStacklayout">
+
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="{Binding visibleIndex}" FontSize="30"/>
+                                    <Label Text="REST " IsVisible="{Binding isRestRound}" FontSize="30"/>
+                                    
+
+                                </StackLayout>
+
+
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text= "{Binding _roundLength}"  />
+                                    
+                                </StackLayout>
+                                
+                            </StackLayout>
+
+
+
+                        </ViewCell>
+
+                    </DataTemplate>
+
+
+                </ListView.ItemTemplate>
+
+
+
+            </ListView>
+
+
+
+
+        </ScrollView>
+        <Label Grid.Row="3" Grid.Column="1"  />
+        <Button Grid.Row="3"  Grid.Column="1"  HorizontalOptions="Center" VerticalOptions="Center" BackgroundColor="DarkGray" Text="Add round" Pressed="Button_Pressed"/>
+    </Grid>
+
+
+</ContentPage>

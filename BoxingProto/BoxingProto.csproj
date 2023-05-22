@@ -1,0 +1,104 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Images\boxingGloves.png" />
+    <None Remove="Images\boxingGloveTabTest.png" />
+    <None Remove="Images\filledplay.png" />
+    <None Remove="Images\filledplay3.png" />
+    <None Remove="Images\glove.png" />
+    <None Remove="Images\ic_action_list.png" />
+    <None Remove="Images\maroonPlus.png" />
+    <None Remove="Images\pause.png" />
+    <None Remove="Images\pausetoolbar.png" />
+    <None Remove="Images\play.png" />
+    <None Remove="Images\rest.png" />
+    <None Remove="Images\ring.png" />
+    <None Remove="Images\timer.png" />
+    <None Remove="Images\toolbarsave.png" />
+    <None Remove="Images\toolbarsave4.png" />
+    <None Remove="Images\unfilledplay3.png" />
+    <None Remove="Images\voice.png" />
+    <None Remove="Images\voiceCanceled.png" />
+    <None Remove="Images\workoutPause.png" />
+    <None Remove="Images\workoutRun.png" />
+    <None Remove="Resources\Clap1.wav" />
+    <None Remove="Resources\Clap2.wav" />
+    <None Remove="Resources\Clap3.wav" />
+    <None Remove="Resources\Clap4.wav" />
+    <None Remove="Resources\EndBell.mp3" />
+    <None Remove="Resources\StartBell.wav" />
+    <None Remove="Resources\tenSecondWarning.mp3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Images\boxingGloves.png" />
+    <EmbeddedResource Include="Images\boxingGloveTabTest.png" />
+    <EmbeddedResource Include="Images\glove.png" />
+    <EmbeddedResource Include="Images\ic_action_list.png" />
+    <EmbeddedResource Include="Images\maroonPlus.png" />
+    <EmbeddedResource Include="Images\pause.png" />
+    <EmbeddedResource Include="Images\play.png" />
+    <EmbeddedResource Include="Images\rest.png" />
+    <EmbeddedResource Include="Images\ring.png" />
+    <EmbeddedResource Include="Images\timer.png" />
+    <EmbeddedResource Include="Images\toolbarsave.png" />
+    <EmbeddedResource Include="Images\voice.png" />
+    <EmbeddedResource Include="Images\voiceCanceled.png" />
+    <EmbeddedResource Include="Images\workoutPause.png" />
+    <EmbeddedResource Include="Images\workoutRun.png" />
+    <EmbeddedResource Include="Resources\Clap1.wav" />
+    <EmbeddedResource Include="Resources\Clap2.wav" />
+    <EmbeddedResource Include="Resources\Clap3.wav" />
+    <EmbeddedResource Include="Resources\Clap4.wav" />
+    <EmbeddedResource Include="Resources\EndBell.mp3" />
+    <EmbeddedResource Include="Resources\StartBell.wav" />
+    <EmbeddedResource Include="Resources\tenSecondWarning.mp3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CHD.StepSlider" Version="1.0.1" />
+    <PackageReference Include="DevExpress.XamarinForms.CollectionView" Version="22.1.7" />
+    <PackageReference Include="sqlite-net-pcl" Version="1.8.116" />
+    <PackageReference Include="SQLiteNetExtensions" Version="2.1.0" />
+    <PackageReference Include="SQLiteNetExtensions.Async" Version="2.1.0" />
+    <PackageReference Include="Xam.Plugin.SimpleAudioPlayer" Version="1.6.0" />
+    <PackageReference Include="Xamarin.CommunityToolkit" Version="2.0.5" />
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2545" />  
+    <PackageReference Include="Xamarin.Essentials" Version="1.7.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="FirstPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="NewEditRoundPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="QuickStart.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="QuickStartPage2.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="RoundRunner.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="SplashScreen.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="WorkoutEditPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="WorkoutPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="WorkoutRunner.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+</Project>

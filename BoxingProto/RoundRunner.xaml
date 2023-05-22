@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BoxingProto.RoundRunner"
+             x:Name="roundrunner">
+
+    <Grid BindingContext="{x:Reference roundrunner}">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height=".4*" />
+            <RowDefinition Height=".2*" />
+            <RowDefinition Height=".2*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="1.2*" />
+            <RowDefinition Height="50" />
+
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width=".15*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width=".15*"/>
+
+        </Grid.ColumnDefinitions>
+
+        
+
+        <StackLayout Orientation="Horizontal" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="5" BindingContext="{x:Reference roundrunner }" 
+                     HorizontalOptions="Center"
+                     VerticalOptions="End" Opacity="{Binding PageOpacity}"  >
+
+            <Label Text="Round:" HorizontalOptions="Center" VerticalOptions="End" FontSize="30" />
+            <Label Text="{Binding CurrentroundNumber }" HorizontalOptions="Center" VerticalOptions="End" FontSize="30"/>
+            <Label Text="/" HorizontalOptions="Center" VerticalOptions="End" FontSize="30"/>
+            <Label Text="{Binding RoundCount }" HorizontalOptions="Center" VerticalOptions="End" FontSize="30"/>
+            
+        </StackLayout>
+
+        
+
+        <ProgressBar Progress="0" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" x:Name="progressbar" ProgressColor="#878787"  ScaleY="3" ScaleX=".7" VerticalOptions="Start"/>
+        
+
+        <Frame Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3" BackgroundColor="#D9D9D9" CornerRadius="20"  VerticalOptions="Start"    >
+
+            <Label BindingContext="{x:Reference roundrunner}" 
+                   Padding="0,0,0,0"  
+                   x:Name="timeremaininglabel"  
+                   FontSize="60"  
+                   HorizontalTextAlignment="Center" 
+                   VerticalTextAlignment="Center"  
+                   
+                   VerticalOptions="Center"/>
+
+        </Frame>
+
+
+
+
+        <Frame Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="3" BackgroundColor="#D9D9D9" CornerRadius="20" HeightRequest="80" VerticalOptions="Start" Opacity="{Binding PageOpacity}"   >
+
+            <Label Text=" " x:Name="combotextlabel" 
+               HorizontalTextAlignment="Center"
+               VerticalTextAlignment="Center"
+               FontSize="60" TextColor="Black"
+               />
+
+        </Frame>
+
+        <ImageButton Grid.Row="5" Grid.Column="1" x:Name="voiceImage" 
+                         BackgroundColor="LightGray" Margin="-10" CornerRadius="50" Padding="15" 
+                         HeightRequest="100" WidthRequest="100"
+                         VerticalOptions="Center" HorizontalOptions="Center"
+                         Clicked="toggleVoice"
+                         Opacity="{Binding PageOpacity}" >
+            
+        </ImageButton>
+
+        <ImageButton Grid.Row="5" Grid.Column="3"  x:Name="pauseroundButton"
+                         BackgroundColor="LightGray" CornerRadius="50" Margin="-10"  Padding="15"
+                         HeightRequest="100" WidthRequest="100"
+                         VerticalOptions="Center" HorizontalOptions="Center"
+                         Clicked="PauseRoundButton">
+        </ImageButton>
+
+        <ImageButton Grid.Row="5" Grid.Column="3"  x:Name="playroundButton"
+                         BackgroundColor="LightGray" CornerRadius="50" Margin="0,0,0,0"  Padding="28,20,20,20" 
+                         HeightRequest="100" WidthRequest="100"
+                         VerticalOptions="Center" HorizontalOptions="Center"
+                         Clicked="UnpauseRoundButton" Aspect="AspectFit">
+                         
+
+        </ImageButton>
+
+        <ImageButton Grid.Row="5" Grid.Column="1" x:Name="voiceImageCanceled" 
+                         BackgroundColor="LightGray" Margin="-10" CornerRadius="50" Padding="15" 
+                         HeightRequest="100" WidthRequest="100"
+                         VerticalOptions="Center" HorizontalOptions="Center"
+                         Clicked="toggleVoice"
+                         Opacity="{Binding PageOpacity}" >
+        </ImageButton>
+
+        <Label BackgroundColor="#C2C2C2" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="5" Opacity="{Binding PageOpacity}"  />
+
+    </Grid>
+
+</ContentPage>

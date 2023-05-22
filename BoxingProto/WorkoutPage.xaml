@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BoxingProto.WorkoutPage"
+             x:Name="workoutpage"
+             NavigationPage.HasBackButton="True" >
+
+    <NavigationPage.TitleView>
+
+
+        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" BackgroundColor="LightBlue">
+
+            <Label Text="hasgasfdg"/>
+
+        </StackLayout>
+
+
+    </NavigationPage.TitleView>
+
+
+
+
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="1.2*" />
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+
+        </Grid.ColumnDefinitions>
+       
+        <ScrollView Grid.RowSpan="4" Grid.ColumnSpan="3">
+        
+            
+        
+            
+            
+        <ListView x:Name="listView"  RowHeight="100" ItemTapped="listView_ItemTapped" >
+
+            <ListView.ItemTemplate>
+
+
+                <DataTemplate>
+
+                    <ViewCell >
+
+                        <StackLayout Orientation="Vertical" BackgroundColor="White" Padding="20,0,0,0">
+                                <Label Text= "{Binding Name}" VerticalOptions="Center" FontSize="24" />
+
+                                <StackLayout Orientation="Horizontal" Padding="10,0,0,0">
+                                    <Label Text="Duration:" />
+                                    <Label Text="{Binding Duration}" />
+                                </StackLayout>
+
+                                <StackLayout Orientation="Horizontal" Padding="10,0,0,0">
+                                    <Label Text="Rounds:" />
+                                    <Label Text="{Binding roundList.Count}" TextColor="Green"/>
+                                </StackLayout>
+                            </StackLayout>
+                        
+                    </ViewCell>
+                    
+                </DataTemplate>
+                
+                
+            </ListView.ItemTemplate>
+            
+
+
+        </ListView>
+
+            
+        
+
+            </ScrollView>
+        <Label Grid.Row="3" Grid.Column="1"  />
+
+        <Button Grid.Row="3"  Grid.Column="1"  HorizontalOptions="Center" VerticalOptions="Center" BackgroundColor="DarkGray" Text="Add" Clicked="AddWorkout" />
+    </Grid>
+        
+
+  
+
+</ContentPage>
